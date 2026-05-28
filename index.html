@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="description" content="Cuchillo Valorio — Música">
+  <title>Cuchillo Valorio</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous"
+  >
+  <style>
+    :root {
+      --bg:      #080808;
+      --fg:      #f0ece6;
+      --fg-dim:  rgba(240, 236, 230, 0.28);
+      --border:  rgba(240, 236, 230, 0.65);
+      --shadow:  rgba(240, 236, 230, 0.40);
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      min-height: 100svh;
+      background-color: var(--bg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 64px 24px;
+      color: var(--fg);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    /* grain texture */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.055;
+      pointer-events: none;
+      z-index: 100;
+    }
+
+    /* ─── WRAPPER ──────────────────────────────── */
+    .container {
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ─── HEADER ───────────────────────────────── */
+    .eyebrow {
+      font-size: 0.58rem;
+      letter-spacing: 0.6em;
+      text-transform: uppercase;
+      color: var(--fg-dim);
+      margin-bottom: 22px;
+    }
+
+    .artist-logo {
+      width: min(96vw, 600px);
+      max-width: 600px;
+      height: auto;
+      display: block;
+      margin-inline: auto;
+      align-self: center;
+    }
+
+    /* decorative divider */
+    .separator {
+      display: flex;
+      align-items: center;
+      width: 200px;
+      margin: 30px 0 46px;
+      gap: 12px;
+    }
+    .sep-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+    }
+    .sep-gem {
+      font-size: 0.55rem;
+      color: var(--fg-dim);
+      letter-spacing: 0.15em;
+    }
+
+    /* ─── LINK BUTTONS ─────────────────────────── */
+    .links {
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .link-btn {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      height: 58px;
+      padding: 0 22px;
+      border-radius: 2px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--fg);
+      /* hard offset shadow — efecto impreso/dibujado */
+      box-shadow: 4px 4px 0 var(--shadow);
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+
+    @media (hover: hover) {
+      .link-btn:hover {
+        transform: translate(4px, 4px);
+        box-shadow: none;
+      }
+    }
+    .link-btn:active {
+      transform: translate(4px, 4px);
+      box-shadow: none;
+    }
+
+    .btn-icon {
+      font-size: 1.1rem;
+      color: var(--fg);
+      width: 26px;
+      flex-shrink: 0;
+      opacity: 0.75;
+    }
+    .btn-name {
+      flex: 1;
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+    }
+    .btn-arrow {
+      width: 26px;
+      text-align: right;
+      font-size: 0.7rem;
+      opacity: 0.3;
+    }
+
+    /* ─── FOOTER ───────────────────────────────── */
+    .footer {
+      margin-top: 52px;
+      font-size: 0.52rem;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: rgba(240, 236, 230, 0.12);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <p class="eyebrow">música</p>
+
+    <img class="artist-logo" src="logo-cuchillo-valorio.svg?v=10" alt="CucHt²ŏ ValØRiŒ">
+
+    <div class="separator" aria-hidden="true">
+      <div class="sep-line"></div>
+      <span class="sep-gem">✦ ✦ ✦</span>
+      <div class="sep-line"></div>
+    </div>
+
+    <nav class="links" aria-label="Redes sociales">
+
+      <!-- Reemplaza cada href="#" con tu URL real -->
+      <a href="https://www.tiktok.com/@cuchillovalorio" class="link-btn"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="TikTok de Cuchillo Valorio">
+        <i class="fa-brands fa-tiktok btn-icon" aria-hidden="true"></i>
+        <span class="btn-name">TikTok</span>
+        <span class="btn-arrow" aria-hidden="true">↗</span>
+      </a>
+
+      <a href="https://www.instagram.com/cuchillovalorio?igsh=MTl1YXczZjV6MGp0ag==" class="link-btn"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Instagram de Cuchillo Valorio">
+        <i class="fa-brands fa-instagram btn-icon" aria-hidden="true"></i>
+        <span class="btn-name">Instagram</span>
+        <span class="btn-arrow" aria-hidden="true">↗</span>
+      </a>
+
+      <a href="#" class="link-btn"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Spotify de Cuchillo Valorio">
+        <i class="fa-brands fa-spotify btn-icon" aria-hidden="true"></i>
+        <span class="btn-name">Spotify</span>
+        <span class="btn-arrow" aria-hidden="true">↗</span>
+      </a>
+
+      <a href="https://on.soundcloud.com/ftoGcFCudkM6uYMW4B" class="link-btn"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="SoundCloud de Cuchillo Valorio">
+        <i class="fa-brands fa-soundcloud btn-icon" aria-hidden="true"></i>
+        <span class="btn-name">SoundCloud</span>
+        <span class="btn-arrow" aria-hidden="true">↗</span>
+      </a>
+
+      <a href="https://youtube.com/@cuchillovalorio?si=4zi6_D6wBcAnA3qd" class="link-btn"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="YouTube de Cuchillo Valorio">
+        <i class="fa-brands fa-youtube btn-icon" aria-hidden="true"></i>
+        <span class="btn-name">YouTube</span>
+        <span class="btn-arrow" aria-hidden="true">↗</span>
+      </a>
+
+    </nav>
+
+    <p class="footer">© Cuchillo Valorio</p>
+
+  </div>
+</body>
+</html>
