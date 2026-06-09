@@ -12,9 +12,9 @@ const fontPath = String.raw`C:\Users\Equipo\Desktop\CVM\Fuentes\hells-kittchen-d
 const font = opentype.parse(readFileSync(fontPath).buffer);
 
 const SIZE = 500;
-const FONT_SIZE = 340;
+const FONT_SIZE = 520;
 
-const pathObj = font.getPath('T', 0, 0, FONT_SIZE);
+const pathObj = font.getPath('t', 0, 0, FONT_SIZE);
 const bb = pathObj.getBoundingBox();
 const glyphW = bb.x2 - bb.x1;
 const glyphH = bb.y2 - bb.y1;
@@ -22,7 +22,7 @@ const glyphH = bb.y2 - bb.y1;
 const offsetX = (SIZE - glyphW) / 2 - bb.x1;
 const offsetY = (SIZE - glyphH) / 2 - bb.y1;
 
-const centeredPath = font.getPath('T', offsetX, offsetY, FONT_SIZE);
+const centeredPath = font.getPath('t', offsetX, offsetY, FONT_SIZE);
 const pathData = centeredPath.toPathData(2);
 
 const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${SIZE} ${SIZE}" width="${SIZE}" height="${SIZE}">
